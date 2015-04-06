@@ -16,6 +16,9 @@ set autoread
 "短形選択で行末より後ろにカーソルを移動できる
 set virtualedit=block
 
+"カーソルを常に画面の中央に表示させる
+set scrolloff=999
+
 "タブは半角スペース4つ
 set tabstop=4
 set shiftwidth=4
@@ -80,7 +83,7 @@ if isdirectory(expand('~/.vim/bundle'))
     "NeoBundle 'davidhalter/jedi-vim'
 
     NeoBundle 'nvie/vim-flake8'
-    let g:flake8_max_line_length = 99
+    "let g:flake8_max_line_length = 99
     if executable('flake8')
         autocmd BufWritePost *.py call Flake8()
     endif

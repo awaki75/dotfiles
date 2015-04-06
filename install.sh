@@ -14,7 +14,6 @@ url="https://raw.githubusercontent.com/awaki75/dotfiles/master"
 curl -s $url/.vimrc -o ~/.vimrc
 curl -s $url/.zshrc -o ~/.zshrc
 curl -s $url/awaki.zsh-theme -o ~/.oh-my-zsh/custom/themes/awaki.zsh-theme
-~/.vim/bundle/neobundle.vim/bin/neoinstall
 
 # cd ~/.vim/bundle/jedi-vim
 # git submodule update --init
