@@ -1,4 +1,4 @@
-sudo apt-get install -y curl git vim zsh
+sudo apt-get install -y curl git zsh
 
 if [ ! -d ~/.oh-my-zsh ]; then
     curl -s https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
