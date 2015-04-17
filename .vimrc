@@ -52,6 +52,9 @@ set wrapscan
 set laststatus=2
 set statusline=%<%F%m%r%h%w%y%=[C=%c/%{col('$')-1}][L=%l/%L]
 
+autocmd BufRead,BufNewFile *.html set tabstop=2 shiftwidth=2
+autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
+
 colorscheme default
 
 if isdirectory(expand('~/.vim/bundle'))
