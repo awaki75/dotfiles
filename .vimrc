@@ -91,6 +91,12 @@ if isdirectory(expand('~/.vim/bundle'))
         autocmd BufWritePost *.py call Flake8()
     endif
 
+    NeoBundle 'Shutnik/jshint2.vim'
+    if executable('jshint')
+        let jshint2_read = 1
+        let jshint2_save = 1
+    endif
+
     "NeoBundle 'vim-jp/vimdoc-ja'
     "set helplang=ja
 
