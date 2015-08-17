@@ -93,7 +93,6 @@ if isdirectory(expand('~/.vim/bundle'))
 
     NeoBundle 'Shutnik/jshint2.vim'
     if executable('jshint')
-        let jshint2_read = 1
         let jshint2_save = 1
     endif
 
