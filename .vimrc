@@ -19,6 +19,9 @@ set virtualedit=block
 "カーソルを常に画面の中央に表示させる
 set scrolloff=999
 
+"貼り付けモードのトグル
+set pastetoggle=<C-p>
+
 "タブは半角スペース4つ
 set tabstop=4
 set shiftwidth=4
