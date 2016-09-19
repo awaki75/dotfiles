@@ -1,5 +1,5 @@
 # dotfiles
 
 ```
-$ curl https://raw.githubusercontent.com/awaki75/dotfiles/master/install.sh | sh
+$ curl https://raw.githubusercontent.com/awaki75/dotfiles/master/setup.sh | bash
 ```
