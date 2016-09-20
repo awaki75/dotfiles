@@ -48,7 +48,7 @@ git_current_branch() {
 git_info() {
     local branch=$(git_current_branch)
     [[ -z $branch ]] && return
-    local modification=$(git status --porcelain 2> /dev/null | wc -l)
+    local modification=$(echo $(git status --porcelain 2> /dev/null | wc -l))
     echo " %F{yellow}$branch($modification)%f"
 }
 
@@ -64,6 +64,11 @@ alias ggpush="git push origin $(git_current_branch)"
 alias glg="git log --stat"
 alias glog="git log --oneline --decorate --graph"
 alias gst="git status"
-alias ls="ls --color=auto"
 alias la="ls -lA"
 alias ll="ls -l"
+
+if [ $(uname) = "Darwin" ]; then
+    alias ls="ls -G"
+else
+    alias ls="ls --color=auto"
+fi
