@@ -47,16 +47,18 @@ git_current_branch() {
 }
 
 git_info() {
-    git_info_=""
     local branch=$(git_current_branch)
-    [[ -z $branch ]] && return
+    if [[ -z $branch ]]; then
+        git_info_msg=""
+        return
+    fi
     local modification=$(echo $(git status --porcelain 2> /dev/null | wc -l))
-    git_info_=" %F{yellow}$branch($modification)%f"
+    git_info_msg=" %F{yellow}$branch($modification)%f"
 }
 
 add-zsh-hook precmd git_info
 
-PROMPT="%F{cyan}[%*]%f %F{green}%~%f\$git_info_$ "
+PROMPT="%F{cyan}[%*]%f %F{green}%~%f\$git_info_msg$ "
 
 alias g="git"
 alias ga="git add"
