@@ -47,6 +47,7 @@ git_current_branch() {
 }
 
 git_info() {
+    git_info_=""
     local branch=$(git_current_branch)
     [[ -z $branch ]] && return
     local modification=$(echo $(git status --porcelain 2> /dev/null | wc -l))
