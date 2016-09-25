@@ -10,6 +10,7 @@ setopt extended_history
 setopt prompt_subst
 setopt pushd_ignore_dups
 
+autoload -Uz add-zsh-hook
 autoload -Uz colors && colors
 autoload -Uz compinit && compinit
 
@@ -49,10 +50,12 @@ git_info() {
     local branch=$(git_current_branch)
     [[ -z $branch ]] && return
     local modification=$(echo $(git status --porcelain 2> /dev/null | wc -l))
-    echo " %F{yellow}$branch($modification)%f"
+    git_info_=" %F{yellow}$branch($modification)%f"
 }
 
-PROMPT="%F{cyan}[%*]%f %F{green}%~%f\$(git_info)$ "
+add-zsh-hook precmd git_info
+
+PROMPT="%F{cyan}[%*]%f %F{green}%~%f\$git_info_$ "
 
 alias g="git"
 alias ga="git add"
