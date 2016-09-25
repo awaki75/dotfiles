@@ -76,3 +76,5 @@ if [ $(uname) = "Darwin" ]; then
 else
     alias ls="ls --color=auto"
 fi
+
+[ -f ~/.zshrc.local ] && . ~/.zshrc.local

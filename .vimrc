@@ -60,3 +60,7 @@ autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 
 filetype plugin indent on
 syntax enable
+
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif
