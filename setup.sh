@@ -16,3 +16,4 @@ git config --global color.ui auto
 git config --global core.attributesfile ~/.gitattributes
 git config --global core.editor vim
 git config --global core.excludesfile ~/.gitignore
+git config --global push.default simple
