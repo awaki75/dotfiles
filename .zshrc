@@ -73,6 +73,11 @@ alias gst="git status"
 alias la="ls -lA"
 alias ll="ls -l"
 
+alias -g ...="../.."
+alias -g ....="../../.."
+alias -g .....="../../../.."
+alias -g ......="../../../../.."
+
 if [ $(uname) = "Darwin" ]; then
     alias ls="ls -G"
 else
