@@ -4,7 +4,9 @@ hash curl git tmux zsh || exit
 
 [ -d ~/.zplug ] || curl -sL zplug.sh/installer | zsh
 
-for name in .gitattributes .gitignore .tmux.conf .vimrc .zshrc; do
+mkdir -p ~/.config/nvim
+
+for name in .config/nvim/init.vim .gitattributes .gitignore .tmux.conf .zshrc; do
     curl -sLS "https://raw.githubusercontent.com/awaki75/dotfiles/master/$name" -o ~/$name
 done
 
