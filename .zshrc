@@ -30,8 +30,8 @@ zplug load
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 
-bindkey "^[[A" history-substring-search-up
-bindkey "^[[B" history-substring-search-down
+bindkey "^[OA" history-substring-search-up
+bindkey "^[OB" history-substring-search-down
 
 # show_opt() { set -o | sed "s/^no\(.*\)on$/\1  off/;s/^no\(.*\)off$/\1  on/" }
 
