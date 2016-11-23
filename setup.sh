@@ -1,8 +1,6 @@
 #!/bin/bash
 
-hash curl git pip3 tmux zsh || exit
-
-pip3 install neovim
+hash curl git zsh || exit
 
 [ -d ~/.zplug ] || curl -sL zplug.sh/installer | zsh
 
