@@ -36,9 +36,9 @@ link .zshrc
 
 echo "configure git"
 git config --global color.ui auto
-git config --global core.attributesfile ./dotfiles/src/.gitattributes
+git config --global core.attributesfile $(pwd)/dotfiles/src/.gitattributes
 git config --global core.editor vim
-git config --global core.excludesfile ./dotfiles/src/.gitignore
+git config --global core.excludesfile $(pwd)/dotfiles/src/.gitignore
 git config --global push.default simple
 
 echo "completed"
