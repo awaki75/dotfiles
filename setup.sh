@@ -18,11 +18,21 @@ else
 fi
 
 echo "link"
-mkdir -p ~/.config/nvim
-cd ~
-for name in .config/nvim/init.vim .tmux.conf .zshrc; do
-    ln -fs "~/dotfiles/src/$name" "$name"
-done
+link() {
+    local path=$1
+    echo "  $path"
+    local target=$HOME/dotfiles/src/$path
+    if [[ $path = */* ]]; then
+        local dir=~/${path%/*}
+        mkdir -p $dir
+        ln -fs -t $dir $target
+    else
+        ln -fs -t ~ $target
+    fi
+}
+link .config/nvim/init.vim
+link .tmux.conf
+link .zshrc
 
 echo "configure git"
 git config --global color.ui auto
