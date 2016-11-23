@@ -7,6 +7,7 @@ set backspace=indent,eol,start  " 行頭でのバックスペースの振る舞�
 set display=lastline            " テキストの表示方法を指定する
 set expandtab                   " <Tab>入力でスペースを入力する
 set fileignorecase              " ファイル名の大文字と小文字を区別するかどうか
+set hidden                      " バッファが捨てられても破棄しない
 set hlsearch                    " 最後に検索したパターンを強調表示する
 set ignorecase                  " 検索パターンで大文字と小文字を区別しない
 set incsearch                   " 検索パターン入力中にその文字を強調表示する
@@ -25,12 +26,9 @@ set ttyfast                     " 高速ターミナル接続を行う
 set virtualedit=block           " フリーカーソルモードを使う場面
 set whichwrap=<,>,[,]           " 行を越えて機能するキーを設定する
 set wrapscan                    " 検索がファイル末尾まで進んだら先頭から再検索
-set hidden                      " バッファが捨てられても破棄しない
 
 set laststatus=2
 set statusline=%<%F%m%r%h%w%y%q%=[C=%c/%{col('$')-1}][L=%l/%L]
-
-set t_Co=256
 
 augroup vimrc
   autocmd!
@@ -57,7 +55,6 @@ if has('python3') && executable('git')
   call dein#add('Shougo/denite.nvim')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('nathanaelkane/vim-indent-guides')
-  call dein#add('tomasr/molokai')
   call dein#add('tomtom/tcomment_vim')
   call dein#add('tpope/vim-surround')
 
@@ -73,18 +70,11 @@ if has('python3') && executable('git')
   let g:deoplete#auto_complete_delay = 50
   let g:deoplete#auto_complete_start_length = 1
   let g:deoplete#enable_at_startup = 1
-  let g:indent_guides_auto_colors = 0
+  let g:indent_guides_auto_colors = 1
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_guide_size = 1
-  let g:molokai_original = 1
 
-  augroup dein
-    autocmd!
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
-  augroup END
-
-  colorscheme molokai
+  colorscheme default
 endif
 
 if filereadable(expand('~/.vimrc.local'))
