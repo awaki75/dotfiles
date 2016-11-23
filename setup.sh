@@ -11,17 +11,17 @@ else
 fi
 
 echo "download dotfiles"
-if [ -d ~/dotfiles ]; then
+if [ -d ./dotfiles ]; then
     echo "  skipped"
 else
-    git clone https://github.com/awaki75/dotfiles.git ~/dotfiles
+    git clone https://github.com/awaki75/dotfiles.git ./dotfiles
 fi
 
 echo "link"
 link() {
     local path=$1
     echo "  $path"
-    local target=$HOME/dotfiles/src/$path
+    local target=$(pwd)/dotfiles/src/$path
     if [[ $path = */* ]]; then
         local dir=~/${path%/*}
         mkdir -p $dir
@@ -36,9 +36,9 @@ link .zshrc
 
 echo "configure git"
 git config --global color.ui auto
-git config --global core.attributesfile ~/dotfiles/src/.gitattributes
+git config --global core.attributesfile ./dotfiles/src/.gitattributes
 git config --global core.editor vim
-git config --global core.excludesfile ~/dotfiles/src/.gitignore
+git config --global core.excludesfile ./dotfiles/src/.gitignore
 git config --global push.default simple
 
 echo "completed"
